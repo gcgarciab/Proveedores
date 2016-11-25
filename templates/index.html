@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="">
+
+    <title>Comunicación - Desafio.com</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="canonical" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <style type="text/css">
+		
+		body {
+		  background-color: #eee;
+		}
+
+		.form-signin {
+		  max-width: 330px;
+		  padding: 15px;
+		  margin: 0 auto;
+		}
+		.form-signin .form-signin-heading,
+		.form-signin .checkbox {
+		  margin-bottom: 10px;
+		}
+		.form-signin .checkbox {
+		  font-weight: normal;
+		}
+		.form-signin .form-control {
+		  position: relative;
+		  height: auto;
+		  -webkit-box-sizing: border-box;
+		     -moz-box-sizing: border-box;
+		          box-sizing: border-box;
+		  padding: 10px;
+		  font-size: 16px;
+		}
+		.form-signin .form-control:focus {
+		  z-index: 2;
+		}
+		.form-signin input[type="email"] {
+		  margin-bottom: -1px;
+		  border-bottom-right-radius: 0;
+		  border-bottom-left-radius: 0;
+		}
+		.form-signin input[type="password"] {
+		  margin-bottom: 10px;
+		  border-top-left-radius: 0;
+		  border-top-right-radius: 0;
+		}
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <figure style="max-width:300px; margin: 0 auto;">
+		<img src="images/desafio.png" alt="Desafio.com" style="width:100%">
+	  </figure>
+
+      <form class="form-signin" role="form">
+        <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" required><br>
+        <!--<input type="password" class="form-control" placeholder="Contraseña" required>-->
+        <button class="btn btn-lg btn-success btn-block" id="botonEnviar" type="submit">Ingresar</button>
+      </form>
+
+    </div> <!-- /container -->
+	<script type="text/javascript">
+
+		$('#botonEnviar').click(function(event){
+			event.preventDefault();
+
+			$.ajax({
+	                data:  $('.form-signin').serialize(),
+	                url:   '/',
+	                type:  'post',
+	                beforeSend: function () {
+	                        $("#botonEnviar").html("Validando...").prop('disabled', true);
+	                },
+	                error: function(response){
+	                	alert('Existen problemas con el servidor. Intenta de nuevo');
+	                	$("#botonEnviar").html("Ingresar").prop('disabled', false);
+	                },
+	                success:  function (response) {
+
+	                	if(response.error_ == 'false'){
+	                		alert('Primer punto desbloqueado :)');
+	                		$("#botonEnviar").html("Redirigiendo...").prop('disabled', true);
+	                		document.location.href = response.equipo;
+	                	}
+	                	else{
+	                		alert('El código no existe :(');
+	                		$("#botonEnviar").html("Ingresar").prop('disabled', false);
+	                	}
+	                }
+	        });
+
+		});
+
+	</script>
+  </body>
+</html>

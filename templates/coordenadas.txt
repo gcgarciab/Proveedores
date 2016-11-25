@@ -1,0 +1,21 @@
+Falabella: 4.682354, -74.044899
+
+Liderazgo
+Iglesia: 4.679989, -74.041007
+Gaira: 4.680569, -74.047702
+Parque 93: 4.676829, -74.048194
+
+Orientacion
+Burguer King: 4.685221, -74.049836
+Olimpica: 4.679904, -74.044532
+Parque 93: 4.676829, -74.048194
+
+Trabajo
+Plazoleta Subway: 4.681958, -74.048986
+Bomba de la 100: 4.682616, -74.044110
+Parque 93: 4.676829, -74.048194
+
+
+Codigo liderazgo: 7x7mFPcBY4qtI7h, 48yB8dH4V58xbRx, Ug1195M928451LU
+Codigo trabajo en equipo: 7J63m3rK7E25MSy, x6jYIE9iH4M59uk, 5D9MS15a4tRd29A
+Codigo orientacion al logro: 3Fubt76cBRwjTYa, 8p8B85pkG5q621F, 84321H39689Ih8W
